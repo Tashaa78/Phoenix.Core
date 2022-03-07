@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>Mixcore</RootNamespace>
+		<UserSecretsId>18e7166c-3aa3-4569-98f0-d319f894743d</UserSecretsId>
+		<ServerGarbageCollection>true</ServerGarbageCollection>
+		<ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<ApplicationIcon>mixcore.ico</ApplicationIcon>
+		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Using Include="System" />
+		<Using Include="System.Threading.Tasks" />
+		<Using Include="Newtonsoft.Json.Linq" />
+		<Using Include="Newtonsoft.Json" />
+		<Using Include="Mix.Lib.Base" />
+		<Using Include="Mix.Shared.Constants" />
+		<Using Include="Mix.Database.Entities.Cms" />
+		<Using Include="Mix.Heart.ViewModel" />
+		<Using Include="Mix.Heart.Models" />
+		<Using Include="Mix.Heart.Enums" />
+		<Using Include="Mix.Heart.UnitOfWork" />
+		<Using Include="Mix.Heart.Services" />
+		<Using Include="Mix.Lib.Attributes" />
+		<Using Include="Mix.Shared.Enums" />
+		<Using Include="Mix.Lib.Helpers" />
+		<Using Include="Mix.Identity.Constants" />
+		<Using Include="Mix.Queue.Interfaces" />
+		<Using Include="Mix.Queue.Models" />
+		<Using Include="Mixcore.Domain.Models" />
+		<Using Include="Mixcore.Domain.ViewModels" />
+		<Using Include="Mixcore.Domain.Services" />
+	</ItemGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<Optimize>False</Optimize>
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Grpc.AspNetCore" Version="2.43.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.2">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Ocelot" Version="18.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\modules\mix.account\mix.account.csproj" />
+		<ProjectReference Include="..\..\modules\mix.common\mix.common.csproj" />
+		<ProjectReference Include="..\..\modules\mix.grpc\mix.grpc.csproj" />
+		<ProjectReference Include="..\..\modules\mix.messenger\mix.messenger.csproj" />
+		<ProjectReference Include="..\..\modules\mix.portal\mix.portal.csproj" />
+		<ProjectReference Include="..\..\modules\mix.tenancy\mix.tenancy.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Views\_ViewImports.cshtml">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="Views\_ViewStart.cshtml">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="..\..\shared\**">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</EmbeddedResource>
+	</ItemGroup>
+	<Target Name="CreateAppDataFolder" AfterTargets="AfterPublish">
+
+	</Target>
+</Project>

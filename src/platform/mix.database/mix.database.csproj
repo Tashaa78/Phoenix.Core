@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Mix.Database</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+	<ItemGroup>
+		<Using Include="Mix.Heart.Entities" />
+		<Using Include="Mix.Heart.Enums" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\mix.shared\mix.shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\Account\PostgresSQLAccount\" />
+    <Folder Include="Migrations\MySqlMixCms\" />
+    <Folder Include="Migrations\PostgresqlMixCms\" />
+    <Folder Include="Migrations\SqliteMixCms\" />
+    <Folder Include="Migrations\SqlServerMixCms\" />
+  </ItemGroup>
+
+</Project>
