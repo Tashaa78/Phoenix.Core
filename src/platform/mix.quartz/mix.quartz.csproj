@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Mix.Quartz</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Quartz" Version="3.3.3" />
+    <PackageReference Include="Quartz.AspNetCore" Version="3.3.3" />
+    <PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\mix.library\mix.library.csproj" />
+    <ProjectReference Include="..\mix.signalr\mix.signalr.csproj" />
+  </ItemGroup>
+
+</Project>
